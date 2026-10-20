@@ -1,14 +1,29 @@
 package ar.edu.unlu.poo.labo2.artefactos;
 
+import ar.edu.unlu.poo.labo2.estrategias.EstrategiaDeMejora;
+
 import java.util.*;
 
 public class CatalogoArtefactos {
-
+    private final EstrategiaDeMejora miEstrategia;
     private final Set<Artefacto> artefactos;
 
     // Constructor por defecto (Compatibilidad Labo 1)
     public CatalogoArtefactos() {
         this.artefactos = new HashSet<>();
+        this.miEstrategia = null;
+    }
+    public CatalogoArtefactos(EstrategiaDeMejora aEstrategia) {
+        this.artefactos = new HashSet<>();
+        if(aEstrategia == null){
+            throw new IllegalArgumentException("La estrategia no puede ser nula");
+        }
+        this.miEstrategia= aEstrategia;
+    }
+    public void aplicarMejoras(){
+        for(Artefacto miArtefacto : this.artefactos){
+            miEstrategia.mejorar(miArtefacto);
+        }
     }
 
     // =========================================================================
@@ -57,4 +72,5 @@ public class CatalogoArtefactos {
         }
         return max;
     }
+
 }

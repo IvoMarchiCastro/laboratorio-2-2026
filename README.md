@@ -11,8 +11,8 @@
 
 # Integrantes del Grupo
 
-- I M (41)
-- J E (42)
+- Ivo M (41)
+- Julieta E (42)
 
 ---
 
